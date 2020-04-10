@@ -1,0 +1,33 @@
+﻿@page "/"
+@implements IDisposable
+@inject MemoryGameModel game
+
+<div class="container">
+    <div class="animals row">
+        @foreach (var card in game.ShuffledCards)
+        {
+            <div class="col-md-3 game-card @card.CssClass" @onclick="@(() => game.SelectCardAsync(card))">
+                <span class="card-text">@card.Animal</span>
+            </div>
+        }
+    </div>
+
+    <h2>Matches found: @game.MatchesFound</h2>
+    <h3>Time: @game.GameTimeElapsed.TotalSeconds.ToString("0.0s")</h3>
+
+    @if (game.GameEnded)
+    {
+        <button class="btn btn-primary" @onclick="game.ResetGame">Play again</button>
+    }
+    else if (game.LatestCompletionTime.HasValue)
+    {
+        <p>Previous time: @game.LatestCompletionTime.Value.ToString("0.0s")</p>
+    }
+</div>
+
+@code {
+    // Subscribe and respond to the timer
+    protected override void OnInitialized() => game.TimerElapsed += OnTimerTick;
+    void OnTimerTick(object sender, ElapsedEventArgs args) => InvokeAsync(StateHasChanged);
+    void IDisposable.Dispose() => game.TimerElapsed -= OnTimerTick;
+}
