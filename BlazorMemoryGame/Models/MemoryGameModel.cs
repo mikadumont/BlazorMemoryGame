@@ -46,7 +46,7 @@ namespace BlazorMemoryGame.Models
             var random = new Random();
             ShuffledCards = animalEmojis.Concat(animalEmojis)
                 .OrderBy(item => random.Next())
-                .Select(item => new AnimalCard(item))
+                .Select(item => AnimalCard.Create(item))
                 .ToList();
             MatchesFound = 0;
             timerStart = timerEnd = null;
@@ -76,7 +76,7 @@ namespace BlazorMemoryGame.Models
             }
             else
             {
-                if (card != lastCardSelected && card.Animal == lastCardSelected.Animal)
+                if (card == lastCardSelected)
                 {
                     // Match found!
                     MatchesFound++;

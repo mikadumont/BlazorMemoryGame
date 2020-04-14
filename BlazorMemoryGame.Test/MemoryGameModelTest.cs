@@ -1,5 +1,6 @@
-using BlazorMemoryGame.Models;
+﻿using BlazorMemoryGame.Models;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -28,7 +29,7 @@ namespace BlazorMemoryGame.Test
             var model = new MemoryGameModel(0);
             var firstSelection = model.ShuffledCards[0];
             var secondSelection = model.ShuffledCards
-                .First(c => c.Animal != firstSelection.Animal);
+                .First(c => c != firstSelection);
 
             // Select first one
             await model.SelectCardAsync(firstSelection);
@@ -50,7 +51,7 @@ namespace BlazorMemoryGame.Test
             var model = new MemoryGameModel(0);
             var firstSelection = model.ShuffledCards[0];
             var secondSelection = model.ShuffledCards.Skip(1)
-                .Single(c => c.Animal == firstSelection.Animal);
+                .Single(c => c == firstSelection);
 
             // Select first one
             await model.SelectCardAsync(firstSelection);
@@ -71,7 +72,7 @@ namespace BlazorMemoryGame.Test
         public async Task WhenAllMatchesFound_GameEnds()
         {
             var model = new MemoryGameModel(0);
-            var distinctAnimals = model.ShuffledCards.Select(c => c.Animal).Distinct().ToList();
+            var distinctAnimals = model.ShuffledCards.Select(c => c).Distinct().ToList();
             var expectedMatchCount = 0;
 
             // Select each pair in turn
@@ -80,7 +81,7 @@ namespace BlazorMemoryGame.Test
                 Assert.False(model.GameEnded);
                 Assert.False(model.LatestCompletionTime.HasValue);
 
-                var matchingCards = model.ShuffledCards.Where(c => c.Animal == animal).ToList();
+                var matchingCards = model.ShuffledCards.Where(c => c == animal).ToList();
                 Assert.Equal(2, matchingCards.Count);
                 await model.SelectCardAsync(matchingCards[0]);
                 await model.SelectCardAsync(matchingCards[1]);
@@ -92,6 +93,24 @@ namespace BlazorMemoryGame.Test
             // Finally, the game should be completed
             Assert.True(model.GameEnded);
             Assert.True(model.LatestCompletionTime.HasValue);
+        }
+
+        [Fact]
+        public void TestSerialization()
+        {
+            AnimalCard card = AnimalCard.Create("🐶");
+            var jsonString = JsonSerializer.Serialize<DogCard>((DogCard)card);
+            Assert.Equal("{\"Animal\":\"\\uD83D\\uDC36\",\"IsTurned\":false,\"IsMatched\":false,\"CssClass\":\"\"}", jsonString);
+            string toSerialize = @"
+                                    { 
+                                      ""Animal"": 
+                                        ""\uD83D\uDC36"", 
+                                        ""IsTurned"": false, 
+                                        ""IsMatched"": false, 
+                                        ""CssClass"": """" 
+                                    }";
+            var newCard = JsonSerializer.Deserialize<DogCard>(toSerialize);
+            Assert.Equal("🐶", newCard.Animal);
         }
     }
 }
