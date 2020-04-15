@@ -25,6 +25,7 @@ namespace BlazorMemoryGame.Models
 
         public bool GameEnded => timerEnd.HasValue;
 
+        // New C# 8 Index Operator 
         public double? LatestCompletionTime => completionTimes.Count > 0
             ? completionTimes[completionTimes.Count - 1]
             : (double?)null;
@@ -41,12 +42,13 @@ namespace BlazorMemoryGame.Models
             ResetGame();
         }
 
+        // Wrap call chain
         public void ResetGame()
         {
             var random = new Random();
             ShuffledCards = animalEmojis.Concat(animalEmojis)
                 .OrderBy(item => random.Next())
-                .Select(item => new AnimalCard(item))
+                .Select(item => AnimalCard.Create(item))
                 .ToList();
             MatchesFound = 0;
             timerStart = timerEnd = null;
@@ -61,6 +63,7 @@ namespace BlazorMemoryGame.Models
                 timer.Start();
             }
 
+            // Simplify conditional expression
             // Can't select cards that were already turned
             if (!card.IsTurned ? isTurningInProgress : true)
             {
@@ -76,9 +79,8 @@ namespace BlazorMemoryGame.Models
             }
             else
             {
-                if (card != lastCardSelected && card.Animal == lastCardSelected.Animal)
+                if (card == lastCardSelected)
                 {
-                    // Match found!
                     MatchesFound++;
                     card.IsMatched = lastCardSelected.IsMatched = true;
                 }
@@ -95,6 +97,9 @@ namespace BlazorMemoryGame.Models
                 lastCardSelected = null;
             }
 
+            // IntelliSense in DateTime and TimeSpan literals
+            var date = DateTime.Now.ToString("mm:MM");
+            
             // Is the game won?
             if (MatchesFound == animalEmojis.Length)
             {
