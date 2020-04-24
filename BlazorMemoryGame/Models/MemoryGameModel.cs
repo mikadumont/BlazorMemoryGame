@@ -6,6 +6,7 @@ using System.Timers;
 
 namespace BlazorMemoryGame.Models
 {
+    // Add debugger display attribute
     public class MemoryGameModel
     {
         private readonly int turnDelayDuration;
@@ -17,17 +18,17 @@ namespace BlazorMemoryGame.Models
         private List<double> completionTimes = new List<double>();
 
         public List<AnimalCard> ShuffledCards { get; set; }
-
+        
         public int MatchesFound { get; private set; }
 
         public TimeSpan GameTimeElapsed
             => timerStart.HasValue ? timerEnd.GetValueOrDefault(DateTime.Now).Subtract(timerStart.Value) : default;
 
         public bool GameEnded => timerEnd.HasValue;
-
+        
+        // Wrap binary expression
         // New C# 8 Index Operator 
-        public double? LatestCompletionTime => completionTimes.Count > 0
-            ? completionTimes[completionTimes.Count - 1]
+        public double? LatestCompletionTime => completionTimes.Count > 0 ? completionTimes[completionTimes.Count - 1]
             : (double?)null;
 
         public event ElapsedEventHandler TimerElapsed
@@ -46,17 +47,13 @@ namespace BlazorMemoryGame.Models
         public void ResetGame()
         {
             var random = new Random();
-            ShuffledCards = animalEmojis.Concat(animalEmojis)
-                .OrderBy(item => random.Next())
-                .Select(item => AnimalCard.Create(item))
-                .ToList();
+            ShuffledCards = animalEmojis.Concat(animalEmojis).OrderBy(item => random.Next()).Select(item => AnimalCard.Create(item)).ToList();
             MatchesFound = 0;
             timerStart = timerEnd = null;
         }
-
+        
         public async Task SelectCardAsync(AnimalCard card)
         {
-            // Make sure the clock is running
             if (!timer.Enabled)
             {
                 timerStart = DateTime.Now;
@@ -64,7 +61,6 @@ namespace BlazorMemoryGame.Models
             }
 
             // Simplify conditional expression
-            // Can't select cards that were already turned
             if (!card.IsTurned ? isTurningInProgress : true)
             {
                 return;
@@ -74,7 +70,6 @@ namespace BlazorMemoryGame.Models
 
             if (lastCardSelected == null)
             {
-                // First selection of the pair. Remember it.
                 lastCardSelected = card;
             }
             else
@@ -86,21 +81,18 @@ namespace BlazorMemoryGame.Models
                 }
                 else
                 {
-                    // Not a match
                     isTurningInProgress = true;
                     await Task.Delay(turnDelayDuration); // Pause before turning back
                     isTurningInProgress = false;
                     card.IsTurned = lastCardSelected.IsTurned = false;
                 }
 
-                // Reset for next pair.
                 lastCardSelected = null;
             }
 
             // IntelliSense in DateTime and TimeSpan literals
-            var date = DateTime.Now.ToString("mm:MM");
+            string date = DateTime.Now.ToString("mm:");
             
-            // Is the game won?
             if (MatchesFound == animalEmojis.Length)
             {
                 timerEnd = DateTime.Now;

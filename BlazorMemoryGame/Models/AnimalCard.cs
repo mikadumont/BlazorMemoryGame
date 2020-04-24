@@ -9,7 +9,8 @@ namespace BlazorMemoryGame.Models
     /// <para>
     /// <see cref="IEquatable{T}"/>
     /// </para>
-    /// <see href="https://bing.com">bing</see>
+    /// <see href="https://support.apple.com/en-us/HT201586">see how to type emoji characters on Mac</see>
+    /// <para><see href="https://home.unicode.org/">type windows key + period for emoji characters on Windows</see></para>
     /// <list type="bullet">
     /// <itm><description><para><em>animal card</em></para></description></itm>
     /// </list>
@@ -23,6 +24,7 @@ namespace BlazorMemoryGame.Models
         {
             return animal switch
             {
+
                 "🐶" => new DogCard(),
                 "🐺" => new WolfCard(),
                 "🐮" => new OxCard(),

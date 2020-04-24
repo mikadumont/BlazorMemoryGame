@@ -4,7 +4,12 @@ VisualStudioVersion = 16.0.29827.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMemoryGame", "BlazorMemoryGame\BlazorMemoryGame.csproj", "{842CDE3B-6B52-4660-9BE1-EE631D22EE00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMemoryGame.Test", "BlazorMemoryGame.Test\BlazorMemoryGame.Test.csproj", "{64E3325C-65E4-410F-8D83-2A7C8B13523D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMemoryGame.Test", "BlazorMemoryGame.Test\BlazorMemoryGame.Test.csproj", "{64E3325C-65E4-410F-8D83-2A7C8B13523D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DFE2B185-467D-470B-9286-5610E86A1166}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
