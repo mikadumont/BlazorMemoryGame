@@ -16,10 +16,13 @@ namespace BlazorMemoryGame.Models
         private AnimalCard lastCardSelected;
         private bool isTurningInProgress;
         private List<double> completionTimes = new List<double>();
+        public bool playerTurn;
 
         public List<AnimalCard> ShuffledCards { get; set; }
         
         public int MatchesFound { get; private set; }
+        public int MatchesFoundP1 { get; private set; }
+        public int MatchesFoundP2 { get; private set; }
 
         public TimeSpan GameTimeElapsed
             => timerStart.HasValue ? timerEnd.GetValueOrDefault(DateTime.Now).Subtract(timerStart.Value) : default;
@@ -40,6 +43,7 @@ namespace BlazorMemoryGame.Models
         public MemoryGameModel(int turnDelayDuration)
         {
             this.turnDelayDuration = turnDelayDuration;
+            playerTurn = true;
             ResetGame();
         }
 
@@ -76,6 +80,15 @@ namespace BlazorMemoryGame.Models
             {
                 if (card == lastCardSelected)
                 {
+                    if (playerTurn == true) //Player 1 = true 
+                    { 
+                        MatchesFoundP1++; 
+                    }
+                    else
+                    {
+                        MatchesFoundP2++;
+                    }
+
                     MatchesFound++;
                     card.IsMatched = lastCardSelected.IsMatched = true;
                 }
@@ -84,6 +97,7 @@ namespace BlazorMemoryGame.Models
                     isTurningInProgress = true;
                     await Task.Delay(turnDelayDuration); // Pause before turning back
                     isTurningInProgress = false;
+                    playerTurn = !playerTurn;
                     card.IsTurned = lastCardSelected.IsTurned = false;
                 }
 
