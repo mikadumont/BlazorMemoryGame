@@ -1,0 +1,11 @@
+<Playlist Version="2.0">
+  <Rule Name="Includes" Match="Any">
+    <Rule Match="All">
+      <Property Name="Solution" />
+      <Rule Match="Any">
+        <Property Name="Project" Value="NET5BenchmarkTests (netcoreapp3.1)" />
+        <Property Name="Project" Value="NET5BenchmarkTests (net5.0)" />
+      </Rule>
+    </Rule>
+  </Rule>
+</Playlist>
