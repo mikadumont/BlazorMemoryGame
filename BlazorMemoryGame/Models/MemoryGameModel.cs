@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -29,7 +30,6 @@ namespace BlazorMemoryGame.Models
 
         public bool GameEnded => timerEnd.HasValue;
         
-        // Wrap binary expression
         // New C# 8 Index Operator 
         public double? LatestCompletionTime => completionTimes.Count > 0 ? completionTimes[completionTimes.Count - 1]
             : (double?)null;
@@ -106,6 +106,7 @@ namespace BlazorMemoryGame.Models
 
             // IntelliSense in DateTime and TimeSpan literals
             string date = DateTime.Now.ToString("mm:");
+            Regex r = new Regex("");
             
             if (MatchesFound == animalEmojis.Length)
             {
