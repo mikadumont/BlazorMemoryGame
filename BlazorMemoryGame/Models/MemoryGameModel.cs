@@ -31,8 +31,7 @@ namespace BlazorMemoryGame.Models
         public bool GameEnded => timerEnd.HasValue;
         
         // New C# 8 Index Operator 
-        public double? LatestCompletionTime => completionTimes.Count > 0 ? completionTimes[completionTimes.Count - 1]
-            : (double?)null;
+        public double? LatestCompletionTime => completionTimes.Count > 0 ? completionTimes[completionTimes.Count - 1] : (double?)null;
 
         public event ElapsedEventHandler TimerElapsed
         {
@@ -106,6 +105,8 @@ namespace BlazorMemoryGame.Models
 
             // IntelliSense in DateTime and TimeSpan literals
             string date = DateTime.Now.ToString("mm:");
+            DateTime dt = new DateTime(2020, 10, 15, 8, 30, 52);
+
             Regex r = new Regex("");
             
             if (MatchesFound == animalEmojis.Length)

@@ -11,17 +11,6 @@ using System.Text.RegularExpressions;
 [TestClass]
 public class PerfTests1
 {
-    [TestMethod]
-    public void ToUpperPerfTest()
-    {
-        string convert = new HttpClient().GetStringAsync("http://www.gutenberg.org/cache/epub/1112/pg1112.txt").Result;
-
-        for (int i = 0; i < 5000; i++)
-        {
-            convert.ToLower();
-            convert.ToUpper();
-        }
-    }
 
     private ImmutableList<int> _list = ImmutableList.Create(Enumerable.Range(0, 1_000).ToArray());
     [TestMethod]
