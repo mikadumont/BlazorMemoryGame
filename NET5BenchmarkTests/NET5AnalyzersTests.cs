@@ -23,7 +23,7 @@ class NET5AnalyzersTests
         }
     }
 
-    public void M2()
+    public void M1()
     {
         int length = 3;
         
@@ -34,12 +34,12 @@ class NET5AnalyzersTests
         }
     }
 
-    public void M3(string str)
+    public void M2(string str)
     {
         ReadOnlySpan<char> slice = str[1..3]; // CA1831
     }
 
-    public void M1()
+    public void M3()
     {
         try
         {
