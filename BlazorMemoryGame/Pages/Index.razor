@@ -2,39 +2,44 @@
 @implements IDisposable
 @inject MemoryGameModel game
 
-    <div class="container">
-        <div class="animals row">
-            @foreach (var card in game.ShuffledCards)
-            {
-                <div class="col-md-3 game-card @card.CssClass" @onclick="@(() => game.SelectCardAsync(card))">
-                    <span class="card-text">@card.Animal</span>
-                </div>
-            }
-        </div>
+<div class="container">
+    <div class="animals row">
+        @foreach (var card in game.ShuffledCards)
+        {
+            <div class="col-md-3 game-card @card.CssClass" @onclick="@(() => game.SelectCardAsync(card))">
+                <span class="card-text">@card.Animal</span>
+            </div>
+        }
+    </div>
 
-            @if(game.playerTurn)
-            {
-                <h1 style="color:#eb4034;text-align: center;">Player 1's turn</h1>
-            }
-            else
-            {
-                 <h1 style="color:#349feb;text-align: center;">Player 2's turn</h1>
-            }
+    @if (game.playerTurn)
+    {
+        <h1 style="color:#eb4034;text-align: center;">Player 1's turn</h1>
+    }
+    else
+    {
+        <h1 style="color:#349feb;text-align: center;">Player 2's turn</h1>
+    }
 
-            @*<h2>Matches found: @game.MatchesFound</h2>*@
+    @*<h2>Matches found: @game.MatchesFound</h2>*@
 
-            <h2 style="text-align: center;">Player 1 Score: @game.MatchesFoundP1</h2>
-            <h2 style="text-align: center;">Player 2 Score: @game.MatchesFoundP2</h2>
-            <h3 style="text-align: center;">Time: @game.GameTimeElapsed.TotalSeconds.ToString("0.0s")</h3>
+    <h2 style="text-align: center;">Player 1 Score: @game.MatchesFoundP1</h2>
+    <h2 style="text-align: center;">Player 2 Score: @game.MatchesFoundP2</h2>
+    <h3 style="text-align: center;">Time: @game.GameTimeElapsed.TotalSeconds.ToString("0.0s")</h3>
 
-            @if (game.GameEnded)
-            {
-                <button class="btn btn-primary" @onclick="game.ResetGame">Play again</button>
-            }
-            else if (game.LatestCompletionTime.HasValue)
-            {
-                <p>Previous time: @game.LatestCompletionTime.Value.ToString("0.0s")</p>
-            }
+    @if (game.GameEnded)
+    {
+        <h1 style="text-align: center;">@game.winner</h1>
+        <button class="btn btn-primary" @onclick="game.ResetGame">Play again</button>
+    }
+    else if (game.LatestCompletionTime.HasValue)
+    {
+        <p>Previous time: @game.LatestCompletionTime.Value.ToString("0.0s")</p>
+    }
+
+    <br>
+    <br>
+    <button class="btn btn-primary" @onclick="@(() => game.EnableDeveloperMode())">Developer Mode</button>
 </div>
 
 @code {
