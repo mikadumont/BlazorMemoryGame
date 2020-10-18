@@ -9,6 +9,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DFE2B185-467D-470B-9286-5610E86A1166}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		.github\workflows\build.yml = .github\workflows\build.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NET5BenchmarkTests", "NET5BenchmarkTests\NET5BenchmarkTests.csproj", "{41F7A11F-5794-4EB3-8853-9C57D27FE8CF}"
