@@ -1,0 +1,15 @@
+{
+  "name": "C# (.NET Core Latest)",
+  "dockerFile": "Dockerfile",
+	
+  "appPort": [
+    "5000:5000",
+    "5001:5001"
+  ],
+
+  "shutdownAction": "stopContainer",
+
+  "extensions": [
+    "ms-vscode.csharp"
+  ]
+}
