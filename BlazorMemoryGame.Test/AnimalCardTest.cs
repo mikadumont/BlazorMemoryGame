@@ -79,8 +79,6 @@ namespace BlazorMemoryGame.Test
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<DogCard>(toSerialize);
             Assert.Equal("🐶", newCard.Animal);
-
-            Assert.True(false);
         }
     }
 }
