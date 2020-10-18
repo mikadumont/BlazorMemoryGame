@@ -16,10 +16,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Setup .NET Core SDK
+    - name: Setup .NET Core SDK 5
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.100-rc.2.20479.15
+
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core SDK 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1
 
 #     - name: Restore
 #       run: dotnet restore
