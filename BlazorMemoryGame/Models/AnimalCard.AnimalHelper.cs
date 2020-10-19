@@ -2,8 +2,11 @@
 
 namespace BlazorMemoryGame.Models
 {
-    public class FoxCard : AnimalCard
+    public abstract partial class AnimalCard
     {
-        public override string Animal => "🦊";
+        partial class AnimalHelper
+        {
+
+        }
     }
 }

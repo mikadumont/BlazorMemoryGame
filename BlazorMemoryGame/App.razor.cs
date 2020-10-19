@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿// Custom file header. Copyright and License info.
+
+using Microsoft.AspNetCore.Components;
 
 namespace BlazorMemoryGame
 {

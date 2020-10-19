@@ -1,10 +1,11 @@
+// Custom file header. Copyright and License info.
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
@@ -52,6 +53,12 @@ public class PerfTests1
             _stream.Position = 0;
             JsonSerializer.SerializeAsync(_stream, _array);
         }
+
+    }
+
+    [TestMethod]
+    public void MyTestMethod()
+    {
 
     }
 }

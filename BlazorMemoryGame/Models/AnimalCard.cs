@@ -1,6 +1,7 @@
-﻿using System;
+﻿// Custom file header. Copyright and License info.
+
+using System;
 using System.Collections.Generic;
-using System.Net.Http.Headers;
 
 namespace BlazorMemoryGame.Models
 {
@@ -18,23 +19,28 @@ namespace BlazorMemoryGame.Models
     /// <item><description><para><strong>animal card</strong></para></description></item>
     /// </list>
     /// </summary>
-    public abstract class AnimalCard : IEquatable<AnimalCard>
+    public abstract partial class AnimalCard : IEquatable<AnimalCard>
     {
         public static AnimalCard Create(string animal)
         {
-            return animal switch
-            {
+            return NewMethod(animal);
 
-                "🐶" => new DogCard(),
-                "🐺" => new WolfCard(),
-                "🐮" => new OxCard(),
-                "🦊" => new FoxCard(),
-                "🐱" => new CatCard(),
-                "🦁" => new LionCard(),
-                "🐯" => new TigerCard(),
-                "🐹" => new MouseCard(),
-                _ => throw new ArgumentException(nameof(animal)),
-            };
+            static AnimalCard NewMethod(string animal)
+            {
+                return animal switch
+                {
+
+                    "🐶" => new DogCard(),
+                    "🐺" => new WolfCard(),
+                    "🐮" => new OxCard(),
+                    "🦊" => new FoxCard(),
+                    "🐱" => new CatCard(),
+                    "🦁" => new LionCard(),
+                    "🐯" => new TigerCard(),
+                    "🐹" => new MouseCard(),
+                    _ => throw new ArgumentException(nameof(animal)),
+                };
+            }
         }
 
         public abstract string Animal { get; }
@@ -47,13 +53,13 @@ namespace BlazorMemoryGame.Models
             get
             {
                 //Convert switch statement to switch expression
-                switch ((IsTurned, IsMatched))
+                return (IsTurned, IsMatched) switch
                 {
-                    case (false, true): return "matched";
-                    case (true, false): return "turned";
-                    case (true, true): return "turned matched";
-                    default: return "";
-                }
+                    (false, true) => "matched",
+                    (true, false) => "turned",
+                    (true, true) => "turned matched",
+                    _ => "",
+                };
             }
         }
 

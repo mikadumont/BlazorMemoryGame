@@ -1,7 +1,6 @@
-﻿using BlazorMemoryGame.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// Custom file header. Copyright and License info.
+
+using BlazorMemoryGame.Models;
 using System.Text.Json;
 using Xunit;
 
@@ -21,10 +20,10 @@ namespace BlazorMemoryGame.Test
             var newCard = JsonSerializer.Deserialize<DogCard>(toSerialize);
             Assert.Equal("🐶", newCard.Animal);
 
-            //AnimalCard ac = JsonSerializer.Deserialize(jsonString, typeof(DogCard));
-            //Assert.Equal("🐶", ac.Animal);
+            AnimalCard ac = (AnimalCard)JsonSerializer.Deserialize(jsonString, typeof(DogCard));
+            Assert.Equal("🐶", ac.Animal);
         }
-        
+
         [Fact]
         public void CardSerializationTest()
         {
