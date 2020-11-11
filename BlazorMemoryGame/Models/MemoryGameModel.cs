@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -106,7 +107,11 @@ namespace BlazorMemoryGame.Models
 
             // IntelliSense in DateTime and TimeSpan literals
             string date = DateTime.Now.ToString("mm:");
-            
+            DateTime dt = new(2020, 10, 15, 8, 30, 52);
+
+            // Regex completion options
+            Regex r = new("");
+
             if (MatchesFound == animalEmojis.Length)
             {
                 timerEnd = DateTime.Now;
