@@ -7,7 +7,6 @@ using System.Timers;
 
 namespace BlazorMemoryGame.Models
 {
-    // Add debugger display attribute
     public class MemoryGameModel
     {
         private readonly int turnDelayDuration;
@@ -20,7 +19,7 @@ namespace BlazorMemoryGame.Models
         public bool playerTurn;
 
         public List<AnimalCard> ShuffledCards { get; set; }
-        
+
         public int MatchesFound { get; private set; }
         public int MatchesFoundP1 { get; private set; }
         public int MatchesFoundP2 { get; private set; }
@@ -29,7 +28,7 @@ namespace BlazorMemoryGame.Models
             => timerStart.HasValue ? timerEnd.GetValueOrDefault(DateTime.Now).Subtract(timerStart.Value) : default;
 
         public bool GameEnded => timerEnd.HasValue;
-        
+
         // Wrap binary expression
         // New C# 8 Index Operator 
         public double? LatestCompletionTime => completionTimes.Count > 0 ? completionTimes[completionTimes.Count - 1]
@@ -56,7 +55,7 @@ namespace BlazorMemoryGame.Models
             MatchesFound = 0;
             timerStart = timerEnd = null;
         }
-        
+
         public async Task SelectCardAsync(AnimalCard card)
         {
             if (!timer.Enabled)
@@ -81,9 +80,10 @@ namespace BlazorMemoryGame.Models
             {
                 if (card == lastCardSelected)
                 {
+                    // Remove redundant equality
                     if (playerTurn == true) //Player 1 = true 
-                    { 
-                        MatchesFoundP1++; 
+                    {
+                        MatchesFoundP1++;
                     }
                     else
                     {
@@ -107,10 +107,11 @@ namespace BlazorMemoryGame.Models
 
             // IntelliSense in DateTime and TimeSpan literals
             string date = DateTime.Now.ToString("mm:");
-            DateTime dt = new(2020, 10, 15, 8, 30, 52);
 
-            // Regex completion options
-            Regex r = new("");
+            DateTime dt = new DateTime(2020, 10, 15, 8, 30, 52);
+
+            // Regex completion
+            Regex r = new Regex("");
 
             if (MatchesFound == animalEmojis.Length)
             {

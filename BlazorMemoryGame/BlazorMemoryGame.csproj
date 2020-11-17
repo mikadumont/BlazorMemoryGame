@@ -9,4 +9,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.*" PrivateAssets="all" />
 		<PackageReference Include="System.Net.Http.Json" Version="5.0.*" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="numbers\" />
+	</ItemGroup>
 </Project>
