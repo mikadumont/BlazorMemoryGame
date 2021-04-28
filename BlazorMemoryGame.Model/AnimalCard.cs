@@ -19,23 +19,6 @@ namespace BlazorMemoryGame.Models
     /// </summary>
     public abstract class AnimalCard : IEquatable<AnimalCard>
     {
-        public static AnimalCard Create(string animal)
-        {
-            return animal switch
-            {
-
-                "🐶" => new DogCard(),
-                "🐺" => new WolfCard(),
-                "🐮" => new OxCard(),
-                "🦊" => new FoxCard(),
-                "🐱" => new CatCard(),
-                "🦁" => new LionCard(),
-                "🐯" => new TigerCard(),
-                "🐹" => new MouseCard(),
-                _ => throw new ArgumentException(nameof(animal)),
-            };
-        }
-
         public abstract string Animal { get; }
 
         public bool IsTurned { get; set; }

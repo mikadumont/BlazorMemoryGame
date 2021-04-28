@@ -10,7 +10,6 @@ namespace BlazorMemoryGame.Models
     public class MemoryGameModel
     {
         private readonly int turnDelayDuration;
-        private string[] animalEmojis = new[] { "🐶", "🐺", "🐮", "🦊", "🐱", "🦁", "🐯", "🐹" };
         private Timer timer = new Timer(100);
         private DateTime? timerStart, timerEnd;
         private AnimalCard lastCardSelected;
@@ -51,7 +50,7 @@ namespace BlazorMemoryGame.Models
         public void ResetGame()
         {
             var random = new Random();
-            ShuffledCards = animalEmojis.Concat(animalEmojis).OrderBy(item => random.Next()).Select(item => AnimalCard.Create(item)).ToList();
+            ShuffledCards = CardHelpers.AllAnimalEmojis.Concat(CardHelpers.AllAnimalEmojis).OrderBy(item => random.Next()).Select(item => CardHelpers.Create(item)).ToList();
             MatchesFound = 0;
             timerStart = timerEnd = null;
         }
@@ -113,7 +112,7 @@ namespace BlazorMemoryGame.Models
             // Regex completion
             Regex r = new Regex("");
 
-            if (MatchesFound == animalEmojis.Length)
+            if (MatchesFound == CardHelpers.AllAnimalEmojis.Length)
             {
                 timerEnd = DateTime.Now;
                 timer.Stop();
