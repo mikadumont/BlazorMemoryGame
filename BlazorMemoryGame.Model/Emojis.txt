@@ -1,0 +1,8 @@
+﻿🐶, Dog
+🐺, Wolf
+🐮, Ox
+🦊, Fox
+🐱, Cat
+🦁, Lion
+🐯, Tiger
+🐹, Mouse

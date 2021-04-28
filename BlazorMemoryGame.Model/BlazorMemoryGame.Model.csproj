@@ -6,4 +6,19 @@
     <WarningLevel>5</WarningLevel>
   </PropertyGroup>
 
+  <!-- Remove this item group to include source realted to cards -->
+  <ItemGroup>
+    <Compile Remove="Cards\**" />
+    <Compile Remove="AnimalCard.cs" />
+    <Compile Remove="CardHelpers.cs" />
+    <EmbeddedResource Remove="Cards\**" />
+    <None Remove="Cards\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include the generator reference to auto-generate card classes  -->
+    <ProjectReference Include="..\BlazorMemoryGame.SourceGenerator\BlazorMemoryGame.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <AdditionalFiles Include="Emojis.txt" />
+  </ItemGroup>
+
 </Project>
