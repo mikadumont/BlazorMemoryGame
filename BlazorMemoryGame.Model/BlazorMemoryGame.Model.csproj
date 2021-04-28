@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AnalysisLevel>5.0</AnalysisLevel>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+</Project>
