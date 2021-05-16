@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -104,19 +105,30 @@ namespace BlazorMemoryGame.Models
                 lastCardSelected = null;
             }
 
-            // IntelliSense in DateTime and TimeSpan literals
-            string date = DateTime.Now.ToString("mm:");
+            DateTime.Now.ToString("");
 
-            DateTime dt = new DateTime(2020, 10, 15, 8, 30, 52);
-
-            // Regex completion
-            Regex r = new Regex("");
+            Match match = new Regex(@"(A|[B]|C)Test\1").Match("ATestC");
 
             if (MatchesFound == CardHelpers.AllAnimalEmojis.Length)
             {
                 timerEnd = DateTime.Now;
                 timer.Stop();
                 completionTimes.Add(timerEnd.Value.Subtract(timerStart.Value).TotalSeconds);
+            }
+
+            void Turn (string s, double value)
+            {
+
+            }
+
+            void SearchCards()
+            {
+                var list = new ArrayList();
+                var index = 0;
+                var value = new object();
+                var comparer = "compare cards";
+
+
             }
         }
     }

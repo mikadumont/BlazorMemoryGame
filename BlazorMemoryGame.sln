@@ -11,9 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMemoryGame.Model", "BlazorMemoryGame.Model\BlazorMemoryGame.Model.csproj", "{320C4378-24D5-4E8D-8228-12D2F00CC79C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMemoryGame.Model", "BlazorMemoryGame.Model\BlazorMemoryGame.Model.csproj", "{320C4378-24D5-4E8D-8228-12D2F00CC79C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorMemoryGame.SourceGenerator", "BlazorMemoryGame.SourceGenerator\BlazorMemoryGame.SourceGenerator.csproj", "{5C7FA268-CFB3-4828-A32B-24E82C686186}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMemoryGame.SourceGenerator", "BlazorMemoryGame.SourceGenerator\BlazorMemoryGame.SourceGenerator.csproj", "{5C7FA268-CFB3-4828-A32B-24E82C686186}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OldAnimalCard", "OldAnimalCard\OldAnimalCard.csproj", "{D5876117-F9BE-4627-A502-B5A16718FE2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldAnimalCard", "OldAnimalCard", "{7F9BF1BE-E6AB-4E12-A866-380568F35ABD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,9 +41,16 @@ Global
 		{5C7FA268-CFB3-4828-A32B-24E82C686186}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C7FA268-CFB3-4828-A32B-24E82C686186}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C7FA268-CFB3-4828-A32B-24E82C686186}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5876117-F9BE-4627-A502-B5A16718FE2D} = {7F9BF1BE-E6AB-4E12-A866-380568F35ABD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0CEAFF8-5D51-47B6-8D67-494F833506C4}

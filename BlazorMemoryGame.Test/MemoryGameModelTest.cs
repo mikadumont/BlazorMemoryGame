@@ -91,6 +91,7 @@ namespace BlazorMemoryGame.Test
             }
 
             // Finally, the game should be completed
+            // Console.WriteLine("Winner is Player 1 with " + model.MatchesFound + " matches.");
             Assert.True(model.GameEnded);
             Assert.True(model.LatestCompletionTime.HasValue);
         }
@@ -98,14 +99,14 @@ namespace BlazorMemoryGame.Test
         [Fact]
         public void TestSerialization()
         {
-            AnimalCard card = AnimalCard.Create("🐶");
-            var jsonString = JsonSerializer.Serialize<DogCard>((DogCard)card);
+            AnimalCard card = CardHelpers.Create("🐱");
+            var jsonString = JsonSerializer.Serialize<CatCard>((CatCard)card);
             Assert.Equal("{\"Animal\":\"\\uD83D\\uDC36\",\"IsTurned\":false,\"IsMatched\":false,\"CssClass\":\"\"}", jsonString);
             
             // Convert regular string literal to verbatim string literal
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
-            var newCard = JsonSerializer.Deserialize<DogCard>(toSerialize);
-            Assert.Equal("🐶", newCard.Animal);
+            var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
+            Assert.Equal("🐱", newCard.Animal);
         }
     }
 }

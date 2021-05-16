@@ -55,7 +55,7 @@ dotnet_style_prefer_conditional_expression_over_return = true:silent
 dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
 dotnet_style_prefer_inferred_tuple_names = true:suggestion
 dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
-dotnet_style_prefer_simplified_boolean_expressions = true:warning
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
 dotnet_style_prefer_simplified_interpolation = true:suggestion
 
 # Field preferences
@@ -210,7 +210,7 @@ dotnet_diagnostic.IDE0090.severity = suggestion
 dotnet_diagnostic.IDE0059.severity = none
 
 # IDE0075: Simplify conditional expression
-dotnet_diagnostic.IDE0075.severity = warning
+dotnet_diagnostic.IDE0075.severity = suggestion
 
 # IDE0100: Remove redundant equality
 dotnet_diagnostic.IDE0100.severity = suggestion
@@ -220,3 +220,9 @@ dotnet_diagnostic.CS0168.severity = none
 
 # IDE0060: Remove unused parameter
 dotnet_diagnostic.IDE0060.severity = none
+
+# CS8321: Local function is declared but never used
+dotnet_diagnostic.CS8321.severity = silent
+
+# CS0219: Variable is assigned but its value is never used
+dotnet_diagnostic.CS0219.severity = silent

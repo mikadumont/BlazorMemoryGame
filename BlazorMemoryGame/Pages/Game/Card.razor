@@ -1,0 +1,8 @@
+﻿@inject MemoryGameModel game
+
+@foreach (var card in game.ShuffledCards)
+            {
+                <div class="col-md-3 game-card @card.CssClass" @onclick="@(() => game.SelectCardAsync(card))">
+                    <span class="card-text">@card.Animal</span>
+                </div>
+            }

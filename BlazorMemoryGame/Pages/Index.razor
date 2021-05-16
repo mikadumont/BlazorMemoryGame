@@ -1,15 +1,11 @@
 ﻿@page "/"
+@using BlazorMemoryGame.Pages.Game
 @implements IDisposable
 @inject MemoryGameModel game
 
     <div class="container">
         <div class="animals row">
-            @foreach (var card in game.ShuffledCards)
-            {
-                <div class="col-md-3 game-card @card.CssClass" @onclick="@(() => game.SelectCardAsync(card))">
-                    <span class="card-text">@card.Animal</span>
-                </div>
-            }
+            <Card></Card>
         </div>
 
             @if(game.playerTurn)
