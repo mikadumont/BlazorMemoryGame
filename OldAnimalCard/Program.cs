@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Custom file header. Copyright and License info.
+
+using System;
 
 namespace OldAnimalCard
 {

@@ -90,7 +90,7 @@ csharp_style_prefer_switch_expression = true:suggestion
 csharp_style_conditional_delegate_call = true:suggestion
 
 # Modifier preferences
-csharp_prefer_static_local_function = true:suggestion
+csharp_prefer_static_local_function = true:silent
 csharp_preferred_modifier_order = public,private,protected,internal,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,volatile,async:silent
 
 # Code-block preferences
@@ -226,3 +226,9 @@ dotnet_diagnostic.CS8321.severity = silent
 
 # CS0219: Variable is assigned but its value is never used
 dotnet_diagnostic.CS0219.severity = silent
+
+# IDE2000: C#
+dotnet_diagnostic.IDE2000.severity = suggestion
+
+# IDE0062: Make local function 'static'
+dotnet_diagnostic.IDE0062.severity = silent

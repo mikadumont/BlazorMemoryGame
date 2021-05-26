@@ -1,10 +1,14 @@
-﻿using System.Collections.Generic;
+﻿// Custom file header. Copyright and License info.
+
 using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace OldAnimalCard
 {
     public abstract class CatCard : IEquatable<CatCard>
     {
+        public Regex emojiString;
         public abstract string Animal { get; }
 
         public bool IsTurned { get; set; }

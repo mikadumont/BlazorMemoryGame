@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Custom file header. Copyright and License info.
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +12,15 @@ namespace BlazorMemoryGame.Models
 {
     public class MemoryGameModel
     {
+        public Regex emojiString;
         private readonly int turnDelayDuration;
-        private Timer timer = new Timer(100);
+        private Timer timer = new(100);
         private DateTime? timerStart, timerEnd;
         private AnimalCard lastCardSelected;
         private bool isTurningInProgress;
         private List<double> completionTimes = new List<double>();
         public bool playerTurn;
+        public int field;
 
         public List<AnimalCard> ShuffledCards { get; set; }
 
@@ -65,7 +69,7 @@ namespace BlazorMemoryGame.Models
             }
 
             // Simplify conditional expression
-            if (!card.IsTurned ? isTurningInProgress : true)
+            if (card.IsTurned || isTurningInProgress)
             {
                 return;
             }
@@ -81,7 +85,7 @@ namespace BlazorMemoryGame.Models
                 if (card == lastCardSelected)
                 {
                     // Remove redundant equality
-                    if (playerTurn == true) //Player 1 = true 
+                    if (playerTurn) //Player 1 = true 
                     {
                         MatchesFoundP1++;
                     }
@@ -105,7 +109,7 @@ namespace BlazorMemoryGame.Models
                 lastCardSelected = null;
             }
 
-            DateTime.Now.ToString("");
+            DateTime.Now.ToString("M");
 
             Match match = new Regex(@"(A|[B]|C)Test\1").Match("ATestC");
 
@@ -116,9 +120,12 @@ namespace BlazorMemoryGame.Models
                 completionTimes.Add(timerEnd.Value.Subtract(timerStart.Value).TotalSeconds);
             }
 
-            void Turn (string s, double value)
+            void Turn(string s, double value)
             {
-
+                if (s != string.Empty)
+                {
+                    Console.WriteLine(s[0]);
+                }
             }
 
             void SearchCards()
@@ -128,7 +135,7 @@ namespace BlazorMemoryGame.Models
                 var value = new object();
                 var comparer = "compare cards";
 
-
+                list.BinarySearch(index, 0, value, null);
             }
         }
     }

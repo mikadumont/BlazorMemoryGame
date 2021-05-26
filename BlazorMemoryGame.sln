@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OldAnimalCard", "OldAnimalC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OldAnimalCard", "OldAnimalCard", "{7F9BF1BE-E6AB-4E12-A866-380568F35ABD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameModel.Tests", "GameModel.Tests\GameModel.Tests.csproj", "{8FDBA274-40DB-403A-8DC8-92E2E1F75779}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5876117-F9BE-4627-A502-B5A16718FE2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FDBA274-40DB-403A-8DC8-92E2E1F75779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FDBA274-40DB-403A-8DC8-92E2E1F75779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FDBA274-40DB-403A-8DC8-92E2E1F75779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FDBA274-40DB-403A-8DC8-92E2E1F75779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

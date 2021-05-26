@@ -1,10 +1,12 @@
-﻿using System;
-using System.Text;
+﻿// Custom file header. Copyright and License info.
+
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
-using System.Linq;
-using System.IO;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
 
 namespace BlazorMemoryGame.SourceGenerator
 {
@@ -18,19 +20,6 @@ using System.Net.Http.Headers;
 
 namespace BlazorMemoryGame.Models
 {
-    /// <summary>
-    /// <c>AnimalCard</c> displays a unique animal on each card
-    /// <para>
-    /// <see cref=""IEquatable{T}""/>
-    /// </para>
-    /// <para><see href=""https://home.unicode.org/"">type windows key + period for emoji characters on Windows</see></para>
-    /// <list type=""bullet"">
-    /// <itm><description><para><em>animal card</em></para></description></itm>
-    /// </list>
-    /// <list type=""number"">
-    /// <item><description><para><strong>animal card</strong></para></description></item>
-    /// </list>
-    /// </summary>
     public abstract class AnimalCard : IEquatable<AnimalCard>
     {
         public abstract string Animal { get; }

@@ -1,4 +1,6 @@
-﻿using BlazorMemoryGame.Models;
+﻿// Custom file header. Copyright and License info.
+
+using BlazorMemoryGame.Models;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace BlazorMemoryGame.Test
             var model = new MemoryGameModel(0);
             var firstSelection = model.ShuffledCards[0];
             var secondSelection = model.ShuffledCards
-                .First(c => c!= firstSelection);
+                .First(c => c != firstSelection);
 
             // Select first one
             await model.SelectCardAsync(firstSelection);
@@ -90,6 +92,7 @@ namespace BlazorMemoryGame.Test
                 Assert.Equal(++expectedMatchCount, model.MatchesFound);
             }
 
+
             // Finally, the game should be completed
             // Console.WriteLine("Winner is Player 1 with " + model.MatchesFound + " matches.");
             Assert.True(model.GameEnded);
@@ -102,7 +105,7 @@ namespace BlazorMemoryGame.Test
             AnimalCard card = CardHelpers.Create("🐱");
             var jsonString = JsonSerializer.Serialize<CatCard>((CatCard)card);
             Assert.Equal("{\"Animal\":\"\\uD83D\\uDC36\",\"IsTurned\":false,\"IsMatched\":false,\"CssClass\":\"\"}", jsonString);
-            
+
             // Convert regular string literal to verbatim string literal
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);

@@ -1,9 +1,11 @@
-using System.Threading.Tasks;
+// Custom file header. Copyright and License info.
+
+using BlazorMemoryGame.Models;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using BlazorMemoryGame.Models;
-using System.Net.Http;
 using System;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace BlazorMemoryGame
 {
