@@ -18,7 +18,7 @@ namespace GameModel.Tests
             AnimalCard card = CardHelpers.Create("🐱");
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
-            if (newCard.Animal is null) return;
+            if (newCard.Animal == null) return;
             Assert.IsNotNull("🐱", newCard.Animal);
         }
 
@@ -28,7 +28,7 @@ namespace GameModel.Tests
             AnimalCard card = CardHelpers.Create("🐱");
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
-            if (newCard.Animal is null) return;
+            if (newCard.Animal == null) return;
             Assert.IsNotNull("🐱", newCard.Animal);
         }
 
@@ -38,7 +38,7 @@ namespace GameModel.Tests
             AnimalCard card = CardHelpers.Create("🐱");
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
-            if (newCard.Animal is null) return;
+            if (newCard.Animal == null) return;
             Assert.IsNotNull("🐱", newCard.Animal);
         }
 
@@ -48,7 +48,7 @@ namespace GameModel.Tests
             AnimalCard card = CardHelpers.Create("🐱");
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
-            if (newCard.Animal is null) return;
+            if (newCard.Animal == null) return;
             Assert.IsNotNull("🐱", newCard.Animal);
         }
 
@@ -58,7 +58,7 @@ namespace GameModel.Tests
             AnimalCard card = CardHelpers.Create("🐱");
             string toSerialize = "\r\n{ \r\n\"Animal\": \r\n\"\\uD83D\\uDC36\", \r\n\"IsTurned\": false, \r\n\"IsMatched\": false, \r\n\"CssClass\": \"\" \r\n}";
             var newCard = JsonSerializer.Deserialize<CatCard>(toSerialize);
-            if (newCard.Animal is null) return;
+            if (newCard.Animal == null) return;
             Assert.IsNotNull("🐱", newCard.Animal);
         }
 
