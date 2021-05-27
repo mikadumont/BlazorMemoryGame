@@ -125,11 +125,14 @@ namespace GameModel.Tests
                     Console.WriteLine("Player 2's turn");
                 }
 
-
+                
             }
+            // Edit and Continue with Add Usings
+            string winner = "Winner is Player 1 with " + model.MatchesFound + " matches.";
+            //winner = winner.Humanize(LetterCasing.AllCaps);
 
             // Finally, the game should be completed
-            Console.WriteLine("Winner is Player 1 with " + model.MatchesFound + " matches.");
+            Console.WriteLine(winner);
             Assert.IsTrue(model.GameEnded);
             Assert.IsTrue(model.LatestCompletionTime.HasValue);
         }
