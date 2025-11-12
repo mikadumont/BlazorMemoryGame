@@ -98,7 +98,7 @@ namespace BlazorMemoryGame.Test
         [Fact]
         public void TestSerialization()
         {
-            AnimalCard card = AnimalCard.Create("🐶");
+            AnimalCard card = CardHelpers.Create("🐶");
             var jsonString = JsonSerializer.Serialize<DogCard>((DogCard)card);
             Assert.Equal("{\"Animal\":\"\\uD83D\\uDC36\",\"IsTurned\":false,\"IsMatched\":false,\"CssClass\":\"\"}", jsonString);
             
